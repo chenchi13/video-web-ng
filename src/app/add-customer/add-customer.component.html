@@ -1,0 +1,30 @@
+<div class="container">
+    <div>
+      <h1>Customer Form</h1>
+      <form #customerForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control col-md-4" id="name" required
+          [(ngModel)]="model.name" name="name" #name="ngModel">
+        </div>
+        <div [hidden]="name.valid || name.pristine"
+        class="alert alert-danger col-md-4">
+        Name is required
+        </div>
+
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input type="text" class="form-control col-md-4" id="surname" required
+          [(ngModel)]="model.surname" name="surname" #surname="ngModel">
+        </div>
+        <div [hidden]="surname.valid || surname.pristine"
+        class="alert alert-danger col-md-4">
+        Surname is required
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!customerForm.form.valid">Submit</button>
+      </form>
+    </div>
+
+</div>

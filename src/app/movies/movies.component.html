@@ -1,0 +1,28 @@
+<div class="media">
+    <div class="media-left">
+        <h1>Movies</h1>
+    </div>
+    <div class="media-body">
+      <a routerLink="/addmovie">
+        <button class="btn btn-primary btn-md m-2" ><strong>+</strong></button>
+      </a>
+    </div>
+</div>
+
+<ul>
+  <li *ngFor="let movie of movies$">
+    <a routerLink="">{{ movie.title }}</a>
+
+    <ul>
+      <li>{{ movie.year }}</li>
+      <li>{{ movie.director.name + " " + movie.director.surname }}</li>
+      <li>
+        <button class="btn btn-secondary btn-sm edit-del-btns" (click)="deleteMovie(movie.idMovie)"><i class="material-icons">delete</i></button>
+        <a routerLink="/addmovie/{{movie.idMovie}}">
+          <button class="btn btn-secondary btn-sm edit-del-btns"><i class="material-icons">edit</i></button>
+        </a>
+      </li>
+    </ul>
+
+  </li>
+</ul>

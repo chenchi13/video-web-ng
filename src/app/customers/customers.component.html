@@ -1,0 +1,22 @@
+<div class="media">
+    <div class="media-left">
+        <h1>Customers</h1>
+    </div>
+    <div class="media-body">
+      <a routerLink="/addcustomer">
+        <button class="btn btn-primary btn-md m-2" ><strong>+</strong></button>
+      </a>
+    </div>
+</div>
+
+<ul [@listStagger]="users$">
+  <li *ngFor="let user of users$">
+    <a routerLink="/details/{{user.idCustomer}}">{{ user.name + " " + user.surname }}</a>
+  
+    <button class="btn btn-secondary btn-sm edit-del-btns" (click)="deleteCustomer(user.idCustomer)"><i class="material-icons">delete</i></button>
+    <a routerLink="/addcustomer/{{user.idCustomer}}">
+      <button class="btn btn-secondary btn-sm edit-del-btns"><i class="material-icons">edit</i></button>
+    </a>
+  </li>
+      
+</ul>

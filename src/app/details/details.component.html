@@ -1,0 +1,29 @@
+<div class="media">
+  <div class="media-left">
+    <h1>{{ user$.name + " " + user$.surname  }}</h1>
+  </div>
+  <div class="media-body">
+    <a routerLink="/addrent/{{user$.idCustomer}}">
+      <button class="btn btn-primary btn-md m-2" ><strong>+</strong></button>
+    </a>
+  </div>
+</div>
+
+<h2>Rented movies:</h2>
+<ul *ngFor="let rent of user$.rents">
+  <li>
+    <h3><strong>Movie:</strong> {{ rent.movie.title }}</h3><br/>
+    <p>
+        <strong>Date of rent:</strong> {{ rent.dateOfRent }}
+    </p>
+    <p>
+        <strong>Due date:</strong> {{ rent.dueDate }}
+    </p>
+
+    <button class="btn btn-secondary btn-sm edit-del-btns" (click)="deleteRent(rent.idRent)"><i class="material-icons">delete</i></button>
+    <a routerLink="/addrent/{{user$.idCustomer}}/{{rent.idRent}}">
+      <button class="btn btn-secondary btn-sm edit-del-btns"><i class="material-icons">edit</i></button>
+    </a>
+
+  </li>
+</ul>

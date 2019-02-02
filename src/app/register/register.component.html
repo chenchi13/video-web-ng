@@ -1,0 +1,50 @@
+<div class="container">
+  <div>
+    <h1>Register Form</h1>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control col-md-4" id="email" required
+        [(ngModel)]="model.email" name="email" #email="ngModel">
+      </div>
+      <div [hidden]="email.valid || email.pristine"
+      class="alert alert-danger col-md-4">
+      Email is required
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control col-md-4" id="username" required
+        [(ngModel)]="model.username" name="username" #username="ngModel">
+      </div>
+      <div [hidden]="username.valid || username.pristine"
+      class="alert alert-danger col-md-4">
+      Username is required
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control col-md-4" id="password" required
+        [(ngModel)]="model.password" name="password" #password="ngModel">
+      </div>
+      <div [hidden]="password.valid || password.pristine"
+      class="alert alert-danger col-md-4">
+      Password is required
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!registerForm.form.valid">Submit</button>
+      <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/
+      C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE
+      2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7D
+      mikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjH
+      A70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYU
+      hDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUl
+      IWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojE
+      MBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUk
+      GCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtq
+      lAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </form>
+  </div>
+
+</div>

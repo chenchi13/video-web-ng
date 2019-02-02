@@ -1,0 +1,27 @@
+<div class="container">
+  <div>
+    <h1>Rent Form</h1>
+    <form #rentForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="movie">Movie</label>
+        <select class="form-control col-md-4" id="movie" required
+        [(ngModel)]="model.movieId" name="movieId">
+          <option *ngFor="let movie of movies" [value]="movie.idMovie">{{movie.title}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dueDate">Due Date</label>
+        <input type="date" class="form-control col-md-4" id="dueDate" required
+        [(ngModel)]="model.dueDate" name="dueDate" #dueDate="ngModel">
+      </div>
+      <div [hidden]="dueDate.valid || dueDate.pristine"
+      class="alert alert-danger col-md-4">
+      Due Date is required
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!rentForm.form.valid">Submit</button>
+    </form>
+  </div>
+</div>
